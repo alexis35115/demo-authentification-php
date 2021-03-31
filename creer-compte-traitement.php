@@ -16,6 +16,7 @@
         // Valider les données
         // valider le sanitize (avec tableau)
 
+        
 
         $sth = $dbh->prepare("INSERT INTO `utilisateur`(`prenom`, `nom`, `courriel`, `mot_passe`) VALUES (:prenom,:nom,:courriel,:mot_passe);");
 
