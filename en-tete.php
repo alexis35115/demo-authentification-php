@@ -4,7 +4,7 @@ session_start();
 <header>
     <h1>Exemple d'un système d'authentification</h1>
     <nav>
-    <div style="float: right;">
+        <div style="float: right;">
             <?php 
 
             // Dans le cas où l'utilisateur est authentifié.
