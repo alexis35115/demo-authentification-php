@@ -8,12 +8,22 @@
     <title>Accueil d'un système d'authentification</title>
 </head>
 <body>
-    <?php 
+    <?php
+    session_start();
     include "en-tete.php";
     ?>
 
-    <div class="centrer">
-        <p>Si vous n'avez pas un compte, commencez par créer votre compte et authentifiez-vous par la suite.</p>
+    <div class="centrer centrer-texte">
+
+    <?php
+    // Dans le cas où l'utilisateur est authentifié.
+    if (!empty($_SESSION['utilisateur'])) {
+        echo("Vous êtes déjà connectés!");
+    } else {
+        echo("Si vous n'avez pas un compte, commencez par créer votre compte et authentifiez-vous par la suite.");
+    }
+    ?>
+
     </div>
 
     <?php

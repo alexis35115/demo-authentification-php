@@ -11,7 +11,7 @@
 	<?php
     session_start();
 
-    // Si l'utilisateur est authentifié, le rediriger vers la page sécurisée.
+    // Si l'utilisateur est authentifié, redirigez celui-ci vers la page sécurisée.
     if (!empty($_SESSION['utilisateur'])) {
         header('Location: page-securisee.php');
     }
@@ -25,15 +25,16 @@
         /*
             Nettoyer les données avant la recherche 
 
-            1. Nettoyer l'adresse courriel
-            2. s'assurer que le mot de passe ne contient pas des DKSAHDKJSAJHDK
-            À préciser!!!
+            1. Nettoyez l'adresse courriel
+            2. S'assurez de nettoyer le mot de passe des caractères supérieur à la valeur 127 de la table ascii avec l'option `FILTER_FLAG_STRIP_HIGH` de `FILTER_SANITIZE_STRING`.
+            http://www.asciitable.com/
 
         */
 
         $utilsateur = filter_var_array($_POST, array(
             'courriel' => FILTER_SANITIZE_EMAIL,
-            'mot_passe' => FILTER_SANITIZE_STRING
+            'mot_passe' => ['filter' => FILTER_SANITIZE_STRING,
+                            'options' => FILTER_FLAG_STRIP_HIGH]
         ));
 
         // Pour ajouter un contexte, la date de suppression doit être vide.

@@ -24,7 +24,7 @@
         Si le courriel n'a pas un format valide, empêchez la création du compte
         et affichez un message d'erreur.
     */
-    if (filter_var($utilsateur['courriel'], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($utilsateur['courriel'], FILTER_VALIDATE_EMAIL)) {
     ?>
         <div class="centrer centrer-texte">
             <?php

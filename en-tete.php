@@ -12,7 +12,7 @@ session_start();
                 
                 // Présentez un message de bienvenue ainsi que la possibilité de se déconnecter.
             ?>
-                <span>Bienvenue <?=$_SESSION['utilisateur']['courriel']?></span> |
+                <span>Bienvenue <?=htmlentities($_SESSION['utilisateur']['courriel'], ENT_QUOTES, 'UTF-8')?></span> |
                 <a href="administration/deconnexion.php">Se deconnecter</a>
             <?php   
             } else {
