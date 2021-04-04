@@ -16,6 +16,8 @@
         // Valider les données
         // valider le sanitize (avec tableau)
 
+        // Que veut-on faire si l'usager est connecté?
+
         // valider que l'on vient de la page précédente?
 
         //on voudrait normalement valider le courriel avec deux champs
