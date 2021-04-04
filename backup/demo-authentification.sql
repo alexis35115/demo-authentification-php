@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 30 mars 2021 à 01:44
+-- Généré le : Dim 04 avr. 2021 à 01:21
 -- Version du serveur :  8.0.22
 -- Version de PHP : 7.4.12
 
@@ -32,10 +32,10 @@ USE `demo-authentification`;
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int NOT NULL COMMENT 'Clé primaire de la table utilisateur',
-  `prenom` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Prénom de l''utilisateur',
-  `nom` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Nom de l''utilisateur',
   `courriel` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Adresse courriel de l''utilisateur',
-  `mot_passe` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mot de passe de l''utilisateur'
+  `mot_passe` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Mot de passe de l''utilisateur',
+  `date_creation` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Date de la création du compte',
+  `date_suppression` datetime DEFAULT NULL COMMENT 'Date de la suppression du compte'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
