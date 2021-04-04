@@ -7,15 +7,15 @@ session_start();
         <div style="float: right;">
             <?php 
 
-            // Si l'utilisateur est authentifié
+            // Dans le cas où l'utilisateur est authentifié.
             if (!empty($_SESSION['utilisateur'])) {
-                
-                // Proposer à l'utilisateur de se déconnecter
+                // Présentez un message de bienvenue ainsi que la possibilité de se déconnecter.
             ?>
+                <span>Bienvenue <?=$_SESSION['utilisateur']['courriel']?></span> |
                 <a href="deconnexion.php">Se deconnecter</a>
             <?php   
             } else {
-                // Dans le cas où l'utilisateur n'est pas connecté
+                // Sinon, proposez à l'utilisateur de s'authentifier ou de créer un compte.
             ?>
                 <a href="authentification.php">S'authentifier</a>
                 <a href="../creer-compte.php">Créer un compte</a>

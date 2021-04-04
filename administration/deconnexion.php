@@ -1,11 +1,14 @@
 <?php
-// Si un veut intéragir avec la session, on doit appeler cette fonction
+/*
+    N'oubliez pas qu'il faut appeler cette fonction si un veut intéragir 
+    avec la super variable globale `$_SESSION`.
+*/
 session_start();
 
-// Détruire la session courante
+// Détruire la session courante.
 session_destroy();
 
-// Rediriger vers la page index à la racine du site
+// Redirigez l'utilisateur vers la page d'accueil du site.
 header('location: ../index.php');
 
 exit;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,13 +12,12 @@
     session_start();
 
     include "en-tete.php";
-
     ?>
 
     <div class="centrer centrer-texte">
 
     <?php
-    // Si l'utilisateur authentifé
+    // Si l'utilisateur est authentifié
     if (!empty($_SESSION['utilisateur'])) {
 
         echo("<pre>");
@@ -27,7 +26,7 @@
         echo("</br>");
         echo("Si vous voyez cette page, c'est que vous êtes authentifiés. (⌐■_■)");
     } else {
-        echo("Erreur, vous n'êtes pas authentifés.");
+        echo("Accès refusé, vous n'êtes pas authentifés.");
     }
     ?>
 

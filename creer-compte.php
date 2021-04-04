@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
             <label for="mot_passe">Mot de passe :</label>
             <input type="password" name="mot_passe" id="mot_passe"/>
         </div>			
-        <input type="submit" value="Créer">
+        <input type="submit" value="Créer le compte">
     </form>
     <?php
     include "pied-page.php";

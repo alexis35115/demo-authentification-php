@@ -10,7 +10,7 @@
     $dsn = 'mysql:dbname='.$base.';host=' . $hote;
     $dbh = new PDO($dsn, $usager, $motdepasse);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $dbh->exec( 'SET CHARACTER SET UTF8' );
+    $dbh->exec('SET CHARACTER SET UTF8');
 
     return $dbh;
 ?>

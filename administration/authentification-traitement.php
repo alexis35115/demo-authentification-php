@@ -11,7 +11,7 @@
 	<?php
     session_start();
 
-    // Si l'utilisateur est authentifié, le sortir d'ici
+    // Si l'utilisateur est authentifié, le rediriger vers la page sécurisée.
     if (!empty($_SESSION['utilisateur'])) {
         header('Location: page-securisee.php');
     }
@@ -22,17 +22,25 @@
 
         include "../connexion.php";
 
-        // Valider ce que l'on veut sanitiser...
-        // Veut-on valider que l'on provient d'authentification?
+        /*
+            Nettoyer les données avant la recherche 
 
+            1. Nettoyer l'adresse courriel
+            2. s'assurer que le mot de passe ne contient pas des DKSAHDKJSAJHDK
+            À préciser!!!
+
+        */
 
         $utilsateur = filter_var_array($_POST, array(
-            'courriel' => FILTER_SANITIZE_STRING,
+            'courriel' => FILTER_SANITIZE_EMAIL,
             'mot_passe' => FILTER_SANITIZE_STRING
         ));
 
         // Pour ajouter un contexte, la date de suppression doit être vide.
-        $sth = $dbh->prepare("SELECT `id_utilisateur`, `courriel`, `mot_passe`, `date_creation` FROM `utilisateur` WHERE `courriel` = :courriel AND `date_suppression` IS NULL;");
+        $sth = $dbh->prepare("SELECT `id_utilisateur`, `courriel`, `mot_passe`, `date_creation`
+                                FROM `utilisateur` 
+                               WHERE `courriel` = :courriel 
+                                 AND `date_suppression` IS NULL;");
 
         $sth->bindParam(':courriel', $utilsateur['courriel'], PDO::PARAM_STR);
         ?>
@@ -42,12 +50,17 @@
         if ($sth->execute()) {
             echo("Succès lors de la création du compte.");
             
-            $utilisateurTrouve = $sth->fetch();
+            $utilisateurTrouve = $sth->fetch(PDO::FETCH_ASSOC);
 
-            // Permet de comparer si le mot de passe dans la base de données corresponds à celui dans la base de données
+            /*
+                Comparez le mot de passe saisit avec celui dans la base de données.
+            */
             if(password_verify($utilsateur["mot_passe"], $utilisateurTrouve['mot_passe'])) {
 
-                // Conserver les informations de l'usager dans la variable `utilisateur` dans la super variable globale $_SESSION
+                /* 
+                    Conservez les informations de l'usager dans la variable `utilisateur`. 
+                    Cette variable sera incluse dans la super variable globale `$_SESSION`.
+                */
                 $_SESSION['utilisateur'] = array(
                     'id_utilisateur' => $utilisateurTrouve['id_utilisateur'],
                     'courriel' => $utilisateurTrouve['courriel'],
@@ -55,11 +68,11 @@
                     'date_creation' => $utilisateurTrouve['date_creation']
                 );
             
-                // Rediriger l'utilisateur authentifé vers la page sécurisée
+                // Redirigez l'utilisateur authentifé vers la page sécurisée.
                 header('Location: page-securisee.php');
             }
             else {
-                echo("Impossible de se connecter avec ces informations.");
+                echo("Connexion impossible ces informations.");
             }
 
         } else {
