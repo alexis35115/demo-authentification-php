@@ -12,15 +12,12 @@
     include "en-tete.php";
     ?>
     <h2>Création d'un compte</h2>
+    <!-- 
+        Formulaire pour la création d'un compte
+    
+        **Notez que** l'on voudrait normalement valider la saisie du mot de passe avec l'ajout d'un champ supplémentaire.
+    -->
     <form action="creer-compte-traitement.php" method="post">
-        <div>
-            <label for="prenom">Prénom :</label>
-            <input type="text" name="prenom" id="prenom"/>			
-        </div>
-        <div>
-            <label for="nom">Nom :</label>
-            <input type="text" name="nom" id="nom"/>
-        </div>
         <div>
             <label for="courriel">Courriel :</label>
             <input type="text" name="courriel" id="courriel"/>

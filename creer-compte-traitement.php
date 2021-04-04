@@ -16,20 +16,26 @@
         // Valider les données
         // valider le sanitize (avec tableau)
 
-        
+        // valider que l'on vient de la page précédente?
 
-        $sth = $dbh->prepare("INSERT INTO `utilisateur`(`prenom`, `nom`, `courriel`, `mot_passe`) VALUES (:prenom,:nom,:courriel,:mot_passe);");
+        //on voudrait normalement valider le courriel avec deux champs
 
-        $sth->bindParam(':titre', $_POST['titre'], PDO::PARAM_STR);
-        $sth->bindParam(':resume', $_POST['resume'], PDO::PARAM_STR);
-        $sth->bindParam(':description', $_POST['description'], PDO::PARAM_STR);
-        $sth->bindParam(':realisateur', $_POST['realisateur'], PDO::PARAM_STR);
+        // Hashage du mot de passe saisit par l'utilisateur
+        $motPasseSecurise = password_hash($_POST['mot_passe'], PASSWORD_BCRYPT);
+      
+
+        $sth = $dbh->prepare("INSERT INTO `utilisateur`(`courriel`, `mot_passe`) VALUES (:courriel,:mot_passe);");
+
+        $sth->bindParam(':courriel', $_POST['courriel'], PDO::PARAM_STR);
+        $sth->bindParam(':mot_passe', $motPasseSecurise, PDO::PARAM_STR);
         ?>
 
         <div class="centrer centrer-texte">
         <?php
         if ($sth->execute()) {
             echo("Succès lors de la création du compte.");
+
+            // Inviter l'usager à se connecter?
         } else {
             echo("Erreur lors de la création du compte.");
         }
