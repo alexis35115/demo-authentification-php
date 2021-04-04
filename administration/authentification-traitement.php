@@ -23,6 +23,9 @@
         include "../connexion.php";
 
         // Valider ce que l'on veut sanitiser...
+        // Veut-on valider que l'on provient d'authentification?
+
+
         $utilsateur = filter_var_array($_POST, array(
             'courriel' => FILTER_SANITIZE_STRING,
             'mot_passe' => FILTER_SANITIZE_STRING
@@ -41,6 +44,7 @@
             
             $utilisateurTrouve = $sth->fetch();
 
+            // Permet de comparer si le mot de passe dans la base de données corresponds à celui dans la base de données
             if(password_verify($utilsateur["mot_passe"], $utilisateurTrouve['mot_passe'])) {
 
                 // Conserver les informations de l'usager dans la variable `utilisateur` dans la super variable globale $_SESSION
@@ -58,8 +62,6 @@
                 echo("Impossible de se connecter avec ces informations.");
             }
 
-
-            // Inviter l'usager à se connecter?
         } else {
             echo("Erreur lors de l'authentification.");
         }
