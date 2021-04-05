@@ -6,6 +6,13 @@ Cette démonstration présente comment gérer l'authentification à l'aide de la
 
 > N'hésitez pas à consulter la [documentation officielle](https://www.w3schools.com/php/php_sessions.asp), au besoin.
 
+## Utilisateurs dans la base de données
+
+Il est possible de s'authentifier avec :
+
+- Courriel : alexis_35115@hotmail.com
+- Mot de passe : pewpew
+
 ## Références
 
 - <https://www.w3schools.com/php/php_sessions.asp>
