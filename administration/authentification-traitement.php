@@ -51,7 +51,7 @@ session_start();
         <div class="centrer centrer-texte">
         <?php
         if ($sth->execute()) {
-            echo("Succès lors de la création du compte.");
+            echo("Succès lors de la récupération du compte.");
             
             $utilisateurTrouve = $sth->fetch(PDO::FETCH_ASSOC);
 

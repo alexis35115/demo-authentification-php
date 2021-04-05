@@ -22,7 +22,7 @@ session_start();
     if (!empty($_SESSION['utilisateur'])) {
 
         echo("<pre>");
-        print_r(htmlspecialchars($_SESSION['utilisateur'], ENT_QUOTES, 'UTF-8'));
+        print_r($_SESSION['utilisateur']);
         echo("</pre>");
         echo("</br>");
         echo("Si vous voyez cette page, c'est que vous êtes authentifiés. (⌐■_■)");
