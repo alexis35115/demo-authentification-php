@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -9,7 +12,6 @@
 </head>
 <body>
 	<?php
-    session_start();
 
     // Si l'utilisateur est authentifié, redirigez celui-ci vers la page sécurisée.
     if (!empty($_SESSION['utilisateur'])) {

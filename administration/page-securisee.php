@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,9 +11,7 @@
     <title>Page sécurisée</title>
 </head>
 <body>
-    <?php 
-    session_start();
-
+    <?php
     include "en-tete.php";
     ?>
 

@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +11,7 @@
     <title>S'authentifier</title>
 </head>
 <body>
-    <?php 
-    session_start();
+    <?php
 
     /*
         Dans le cas où l'utilisateur est déjà authentifié, redirigez 

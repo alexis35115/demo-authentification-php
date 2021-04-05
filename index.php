@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,7 +12,6 @@
 </head>
 <body>
     <?php
-    session_start();
     include "en-tete.php";
     ?>
 
