@@ -40,11 +40,11 @@
             include "connexion.php";
 
             // Hashage du mot de passe saisit par l'utilisateur
-            $motPasseSecurise = password_hash($_POST['mot_passe'], PASSWORD_BCRYPT);
+            $motPasseSecurise = password_hash($utilsateur['mot_passe'], PASSWORD_BCRYPT);
 
             $sth = $dbh->prepare("INSERT INTO `utilisateur`(`courriel`, `mot_passe`) VALUES (:courriel, :mot_passe);");
 
-            $sth->bindParam(':courriel', $_POST['courriel'], PDO::PARAM_STR);
+            $sth->bindParam(':courriel', $utilsateur['courriel'], PDO::PARAM_STR);
             $sth->bindParam(':mot_passe', $motPasseSecurise, PDO::PARAM_STR);
             ?>
 
