@@ -5,6 +5,7 @@ Cette démonstration présente comment gérer l'authentification à l'aide de la
 > **Notez** que la fonction `session_start()` doit être la première chose dans votre fichier. Avant toute balise HTML!
 
 > N'hésitez pas à consulter la [documentation officielle](https://www.w3schools.com/php/php_sessions.asp), au besoin.
+
 ## Références
 
 - <https://www.w3schools.com/php/php_sessions.asp>
