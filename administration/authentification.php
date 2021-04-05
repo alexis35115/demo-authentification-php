@@ -38,7 +38,7 @@ session_start();
     </form>
 
     <?php
-    include "pied-page.php";
+    include "../pied-page.php";
     ?>
 </body>
 </html>
