@@ -75,7 +75,7 @@ session_start();
                 header('Location: page-securisee.php');
             }
             else {
-                echo("Connexion impossible ces informations.");
+                echo("Connexion impossible avec ces informations.");
             }
 
         } else {
