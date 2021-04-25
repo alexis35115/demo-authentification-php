@@ -1,6 +1,6 @@
 <?php
 /*
-    N'oubliez pas qu'il faut appeler cette fonction si un veut intéragir 
+    N'oubliez pas qu'il faut appeler cette fonction si un veut interagir 
     avec la super variable globale `$_SESSION`.
 */
 session_start();

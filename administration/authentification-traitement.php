@@ -28,7 +28,7 @@ session_start();
             Nettoyer les données avant la recherche 
 
             1. Nettoyez l'adresse courriel
-            2. S'assurez de nettoyer le mot de passe des caractères supérieur à la valeur 127 de la table ascii avec l'option `FILTER_FLAG_STRIP_HIGH` de `FILTER_SANITIZE_STRING`.
+            2. S'assurer de nettoyer le mot de passe des caractères supérieur à la valeur 127 de la table ASCII avec l'option `FILTER_FLAG_STRIP_HIGH` de `FILTER_SANITIZE_STRING`.
             http://www.asciitable.com/
 
         */
@@ -56,7 +56,7 @@ session_start();
             $utilisateurTrouve = $sth->fetch(PDO::FETCH_ASSOC);
 
             /*
-                Comparez le mot de passe saisit avec celui dans la base de données.
+                Comparez le mot de passe saisi avec celui dans la base de données.
             */
             if(password_verify($utilsateur["mot_passe"], $utilisateurTrouve['mot_passe'])) {
 
@@ -71,7 +71,7 @@ session_start();
                     'date_creation' => $utilisateurTrouve['date_creation']
                 );
             
-                // Redirigez l'utilisateur authentifé vers la page sécurisée.
+                // Redirigez l'utilisateur authentifié vers la page sécurisée.
                 header('Location: page-securisee.php');
             }
             else {

@@ -27,7 +27,7 @@ session_start();
         echo("</br>");
         echo("Si vous voyez cette page, c'est que vous êtes authentifiés. (⌐■_■)");
     } else {
-        echo("Accès refusé, vous n'êtes pas authentifés.");
+        echo("Accès refusé, vous n'êtes pas authentifiés.");
     }
     ?>
 
