@@ -15,7 +15,7 @@
         Nettoyez les données provenant du formulaire de la page `creer-compte.php` 
         qui sont incluses dans la super variable globale `$_POST`.
     */
-    $utilsateur = filter_var_array($_POST, array(
+    $utilisateur = filter_var_array($_POST, array(
         'courriel' => FILTER_SANITIZE_EMAIL,
         'mot_passe' => FILTER_SANITIZE_STRING
     ));
@@ -24,7 +24,7 @@
         Si le courriel n'a pas un format valide, empêchez la création du compte
         et affichez un message d'erreur.
     */
-    if (!filter_var($utilsateur['courriel'], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($utilisateur['courriel'], FILTER_VALIDATE_EMAIL)) {
     ?>
         <div class="centrer centrer-texte">
             <?php
@@ -40,11 +40,11 @@
             include "connexion.php";
 
             // Hashage du mot de passe saisit par l'utilisateur
-            $motPasseSecurise = password_hash($utilsateur['mot_passe'], PASSWORD_BCRYPT);
+            $motPasseSecurise = password_hash($utilisateur['mot_passe'], PASSWORD_BCRYPT);
 
             $sth = $dbh->prepare("INSERT INTO `utilisateur`(`courriel`, `mot_passe`) VALUES (:courriel, :mot_passe);");
 
-            $sth->bindParam(':courriel', $utilsateur['courriel'], PDO::PARAM_STR);
+            $sth->bindParam(':courriel', $utilisateur['courriel'], PDO::PARAM_STR);
             $sth->bindParam(':mot_passe', $motPasseSecurise, PDO::PARAM_STR);
             ?>
 
